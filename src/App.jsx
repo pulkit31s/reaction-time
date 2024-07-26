@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Deatils from './assets/components/Deatils';
+import Game from './assets/components/Game';
 
 function App() {
-  return (
-    <div>App</div>
-  )
+  const [isEntered, setIsEntered] = useState(false);
+
+  const handleEnter = () => {
+    setIsEntered(true);
+  };
+
+  if (isEntered) {
+    return <Game />;
+  }
+
+  return <Deatils onEnter={handleEnter} />;
 }
 
-export default App
+export default App;
